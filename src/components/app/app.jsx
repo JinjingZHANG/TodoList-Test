@@ -23,6 +23,10 @@ export default class App extends Component {
     finishTask = (task) => axios.put(`https://todo-test-mona.herokuapp.com/tasks/${task.id}`, {done: task.done})
             .then(() =>this.loadData())
 
+    componentDidMount(){
+        this.loadData()
+    }
+
     loadData () {
         axios.get('https://todo-test-mona.herokuapp.com/tasks')
             .then((response) => {
@@ -34,24 +38,6 @@ export default class App extends Component {
             .catch((error) => {
                 console.log(error);
                 this.setState({
-                    isLoaded:false,
-                    error:error
-                })
-            })
-    }
-
-    componentDidMount(){
-        const _this=this;
-        axios.get('https://todo-test-mona.herokuapp.com/tasks')
-            .then(function (response) {
-                _this.setState({
-                    tasks:response.data,
-                    isLoaded:true
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-                _this.setState({
                     isLoaded:false,
                     error:error
                 })

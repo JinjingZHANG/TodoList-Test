@@ -54,12 +54,10 @@ export default class Item extends Component {
                     <p onClick={this.handleSupprimer}>supprimer?</p>
                 </div>
                 <form>
-                    <p>
                         <Checkbox className="content" onChange={this.handleUpdate} checked={task.done}>
                             <span style={finishTodo}>{task.name}</span>
                         </Checkbox>
                         <p className="time">{task.updated_at}</p>
-                    </p>
                 </form>
             </li>
 
