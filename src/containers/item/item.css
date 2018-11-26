@@ -1,0 +1,36 @@
+li {
+    transition: .5s;
+    overflow: hidden;
+}
+
+.handle{
+    width: 80px;
+    background: #fff;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+}
+
+.handle label{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+.handle label:hover{
+    color: #4169E1;
+    text-decoration: underline;
+}
+
+.list-group-item .centence {
+    padding: 0px 50px;
+}
+
+.content {
+    font-size: 19px;
+}
+
+.time {
+    text-align: right;
+}
