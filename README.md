@@ -11,9 +11,7 @@ Vous devriez entrer le code `$ npm -v` dans le terminal pour vous assurer que vo
 #### Démarrage
 Au début, installer le modèle de create-react-app par les codes suivants
 ````
-$ npm -g create-react-app
-$ create-react-app todolist
-$ cd todolist
+$ npm intall
 $ npm start
 ````
 
