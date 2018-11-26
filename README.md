@@ -1,44 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Projet : TodoList
+C'est une Todolist en React qui consistera en un crud basique (create, read, update, delete). L'interface vous montrera ce que vous devez faire et ce qui a été fait, ainsi que l'heure de mise à jour correspondante. Vous pouvez gérer votre liste de tâches via cette interface.
+  
+##Pour commencer
+Ce projet utilise `create-react-app` qui peut vous aider à créer automatiquement le modèle de projet React le plus simple basé sur Webpack + ES6.
 
-## Available Scripts
+####Conditions préalables
+Vous devriez entrer le code `$ npm -v` dans le terminal pour vous assurer que vous avez installé npm, sinon l'installer
 
-In the project directory, you can run:
 
-### `npm start`
+####Démarrage
+Au début, installer le modèle de create-react-app par les codes suivants
+````
+$ npm -g create-react-app
+$ create-react-app todolist
+$ cd todolist
+$ npm start
+````
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##La structure de projet
+````
+.
+├── src                 
+|   |   
+|   |   
+|   ├── components 
+|   |   |   
+|   |   ├── app        #component total         
+|   |   |   |
+|   |   |   └── app.jsx
+|   |   |
+|   |   ├── addTodo    #component pour ajouter les tâches
+|   |   |   |
+|   |   |   └── addTodo.jsx
+|   |   |  
+|   |   ├── list       #component pour la liste
+|   |   |   |
+|   |   |   ├── list.jsx
+|   |   |   |
+|   |   |   └── list.css
+|   |   |
+|   |   └── itemTodo   #component pour les tâches dans la liste 
+|   |       |
+|   |       ├── itemTodo.jsx
+|   |       |
+|   |       └── itemTodo.css
+|   |   
+|   └── index.js       
+|      
+├── build               
+├── public
+├── node_modules       
+├── .gitignore      
+├── package-lock.json
+├── package.json        
+└── README.md           
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+````
 
-### `npm test`
+##Pour tester
+Pour tester les fonctionnements principals, vous devriez d'abord exécuter le code `$ npm start` dans le dossier du projet. Ensuite, ouvrier l'adresse <http://localhost:3000/> dans le browser.
+   
+Après avoir réussi à entrer le site, vous pouvez facilement tester les fonctionnements correspondants.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Construit avec
+* **create-react-app**
+* **npm** (Node.js)
+    * Outil de gestion de paquets par défaut pour la plate-forme Node.js
+* **axios** 
+    * Bibliothèque HTTP basée sur des promesses
+* **prop-types**
+    * Bibliothèque de détection de type correspondant à React
+* **boootstrap** 
+    * Boîte à outils Open Source pour le développement frontal
 
-### `npm run build`
+##Version
+* **Version originale** (téléchargé à 26/11/2018)
+* **Version 2** (téléchargé à 26/11/2018)
+    * Faciliter les codes
+    * Détecter et résoudre les warnings sur le page Web
+    * Renforcer la convivialité
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Reference
+* Syntaxe sur axios : <https://npm.runkit.com/axios>
+* Tutorial sur github : <https://www.cnblogs.com/liuboyingblog/p/8260233.html>
+* Documents et tutorial sur React : <https://reactjs.org/>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

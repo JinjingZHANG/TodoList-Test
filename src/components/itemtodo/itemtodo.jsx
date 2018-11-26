@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import './item.css'
+import './item-css.css'
+import Checkbox from "react-bootstrap/es/Checkbox";
 
 export default class Item extends Component {
 
@@ -34,21 +35,34 @@ export default class Item extends Component {
 
     render () {
 
-        const {task, finishTask} = this.props
+        const {task} = this.props
+
+        const unfinish = {
+            color: '#FF9A3C',
+        };
+
+        const finish = {
+            color: '#ccc',
+            textDecoration: 'line-through'
+        }
+
+        let finishTodo = task.done === false ? unfinish : finish;
 
         return (
-            <li className="list-group-item">
+            <li className="list-group-item" style={finishTodo}>
                 <div className="handle">
-                    <label onClick={this.handleSupprimer}>supprimer?</label>
+                    <p onClick={this.handleSupprimer}>supprimer?</p>
                 </div>
                 <form>
-                    <lable>
-                        <input type="checkbox" className="content" onClick={this.handleUpdate} checked={task.done}></input>
-                        &nbsp;&nbsp;{task.name}
+                    <p>
+                        <Checkbox className="content" onChange={this.handleUpdate} checked={task.done}>
+                            <span style={finishTodo}>{task.name}</span>
+                        </Checkbox>
                         <p className="time">{task.updated_at}</p>
-                    </lable>
+                    </p>
                 </form>
             </li>
+
         )
 
     }

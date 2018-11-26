@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from "prop-types";
 
-import Item from '../item/item'
+import Item from '../itemtodo/itemtodo'
 import './list-css.css'
 
 export default class List extends Component {

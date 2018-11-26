@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Add from '../add/add'
+import Add from '../addtodo/addtodo'
 import List from '../list/list'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -13,45 +13,30 @@ export default class App extends Component {
         isLoaded: null
     }
 
-    addTask = (task) => {
-        const _this=this;
-        axios.post('https://todo-test-mona.herokuapp.com/tasks', task)
-            .then(function () {
-                    axios.get('https://todo-test-mona.herokuapp.com/tasks')
-                        .then(function (response) {
-                            _this.setState({
-                                tasks:response.data,
-                                isLoaded:true
-                            });
-                        })
-            })
-    }
+    addTask = (task) => axios.post('https://todo-test-mona.herokuapp.com/tasks', task)
+        .then(() => this.loadData())
 
-    deleteTask = (task) => {
-        const _this=this;
-        axios.delete(`https://todo-test-mona.herokuapp.com/tasks/${task.id}`)
-            .then(function () {
-                    axios.get('https://todo-test-mona.herokuapp.com/tasks')
-                        .then(function (response) {
-                            _this.setState({
-                                tasks:response.data,
-                                isLoaded:true
-                            });
-                        })
-            })
-    }
+    deleteTask = (task) => axios.delete(`https://todo-test-mona.herokuapp.com/tasks/${task.id}`)
+        .then(() => this.loadData())
 
-    finishTask = (task) => {
-        const _this=this;
-        axios.put(`https://todo-test-mona.herokuapp.com/tasks/${task.id}`, {done: task.done})
-            .then(function () {
-                axios.get('https://todo-test-mona.herokuapp.com/tasks')
-                    .then(function (response) {
-                        _this.setState({
-                            tasks:response.data,
-                            isLoaded:true
-                        });
-                    })
+
+    finishTask = (task) => axios.put(`https://todo-test-mona.herokuapp.com/tasks/${task.id}`, {done: task.done})
+            .then(() =>this.loadData())
+
+    loadData () {
+        axios.get('https://todo-test-mona.herokuapp.com/tasks')
+            .then((response) => {
+                this.setState({
+                    tasks:response.data,
+                    isLoaded:true
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                this.setState({
+                    isLoaded:false,
+                    error:error
+                })
             })
     }
 
@@ -78,7 +63,7 @@ export default class App extends Component {
         const {tasks} = this.state
 
         return(
-            <div>
+            <div id='root'>
                 <header className="site-header jumbotron">
                     <div className="container">
                         <div className="row">
